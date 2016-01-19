@@ -46,6 +46,14 @@
     
     nameService.name;
     nameService.nameLength();
+    
+    //Event loop and Digest loop are different. To tell the digest loop to watch for something in the event loop, use $scope.$apply
+    setTimeout(function(){
+      $scope.$apply(function(){
+        $scope.name = 'This is a timeout';
+        console.log('name scope has changed!');        
+      });
+    }, 3000);
   }
   
   //Service
